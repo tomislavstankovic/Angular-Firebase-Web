@@ -1,0 +1,25 @@
+<form class="callout text-center" [formGroup]="addnew" autocomplete="on">
+  <h2>Become an Avenger</h2>
+  <div class="floated-label-wrapper">
+    <input class="form-control" formControlName="name" type="text" id="name" name="name" placeholder="Full name">
+    <div *ngIf="addnew.controls.name.invalid && addnew.controls.name.dirty">
+        <p class="upozorenje">Please, enter your name!</p>
+   </div>
+  </div>
+  <div class="floated-label-wrapper">
+    <input class="form-control" formControlName="address" type="text" id="address" name="address" placeholder="Address">
+    <div *ngIf="addnew.controls.address.invalid && addnew.controls.address.dirty">
+        <p class="upozorenje">Please, enter correct address!</p>
+   </div>
+  </div>
+  <div class="floated-label-wrapper">
+    <input class="form-control" formControlName="email" type="email" id="email" name="email" placeholder="E-mail">
+    <div *ngIf="addnew.controls.email.invalid && addnew.controls.email.dirty">
+        <p class="upozorenje">Please, enter correct e-mail!</p>
+   </div>
+  </div>
+  <input class="button expanded" type="submit" value="JOIN AVENGERS" (click)="send(addnew)">
+
+  <p *ngIf="values">{{ addnew.value | json }}</p>
+
+</form>

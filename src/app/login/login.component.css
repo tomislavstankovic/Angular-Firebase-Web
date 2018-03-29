@@ -1,0 +1,22 @@
+#login {
+    width:40%;
+    margin: 1.5em auto 4em auto;
+    display:block;
+}
+
+#fb {
+    background:#3B5998;
+    background-size: 47px;
+    color:#fff;
+}
+
+#google {
+    background: #dd4b39;
+    background-size: 25px;
+    color: #fff;
+}
+
+#email {
+    background: #ECECEC;
+    background-size: 25px;
+}

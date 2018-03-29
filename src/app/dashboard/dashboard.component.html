@@ -1,0 +1,114 @@
+<div class="form-container-dashboard " id="toolbar">
+  <div class="beba">
+
+    <nav class="top-bar topbar-responsive">
+        <div class="top-bar-title">
+          <a class="topbar-responsive-logo" href="#"><strong>MARVEL</strong></a>
+        </div>
+        <div id="topbar-responsive" class="topbar-responsive-links">
+          <div class="top-bar-right">
+            <ul class="menu simple vertical medium-horizontal">
+              <li><a routerLink="/dashboard">Dashboard</a></li>
+              <li><a (click)="_ngxSmartModalService.getModal('myModal').open()">Create Avenger</a></li>
+              <li>
+                <button type="button" class="button hollow topbar-responsive-button" (click)="logout()">Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      
+
+  <!-- <header>
+    <button (click)="logout()" class="basic-btn">Logout</button>
+  </header> -->
+
+
+  <div class="row">
+
+      <div class="large-8 columns">
+
+      <!-- Sample 1-->
+<!-- Posts panel container -->
+<div class="posts-panel">
+
+    <!-- Panel's header -->
+    <header class="panel-header">
+      <h1 class="panel-title">Pick an Avenger ({{pick}})</h1>
+    </header>
+  
+    <!-- Panel's content -->
+    <div class="panel-content">
+  
+      <!-- Posts list -->
+      <section class="posts-list" *ngIf="heroes">
+        <div class="post-item" *ngFor="let hero of heroes">
+            <!-- <button class="button primary small fav" (click)="addToFavorites(hero)">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                +
+              </button> -->
+          <a href="{{hero.details_url}}" class="post-thumbnail">
+            <img src="{{hero.image}}" alt="{{hero.name}}">
+          </a>
+          <div class="post-text">
+              <h3 class="post-title">{{hero.name}} <span *ngIf="hero.id!==add" class="float-right hide-for-small-only hide-for-medium-only" (click)="addToFavorites(hero)"><i class="fas fa-plus-square"></i></span></h3>
+
+            <div class="post-meta">
+              <p class="meta">Updated: {{hero.modified}}.</p>
+            </div>
+            <div class="post-summary">
+              <p>{{hero.description}}</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  
+      </div>
+
+    <div class="large-3 columns hide-for-small-only hide-for-medium-only">
+
+  <!-- User card example #2 -->
+  <div class="card-user-container">
+    <div class="card-user-avatar" *ngIf="picture">
+      <img src="{{picture}}" alt="{{name}}" class="user-image">
+    </div>
+    <div class="card-user-bio">
+      <h4 *ngIf="name">{{name}}</h4>
+      <p *ngIf="email">{{email}}</p>
+    </div>
+
+    <hr>
+
+ <div *ngIf="heroesFavArray" class="heroesFav">
+    <div class="post-item" *ngFor="let hero of heroesFavArray; let i = index">
+      <h4 class="post-title">{{hero.name}} <span class="float-right removeFav" (click)="removeFromFavorites(hero)"><i class="fas fa-minus-square"></i></span></h4>
+      <a href="{{hero.details_url}}" class="post-thumbnail">
+        <img src="{{hero.image}}" alt="{{hero.name}}">
+      </a>
+    </div>
+  </div>
+
+  
+  </div>
+  
+
+  
+        
+    </div>
+  </div>
+
+  <div id="snackbar">{{obavijest}}</div>
+
+  <!-- Modal start -->
+  <ngx-smart-modal #myModal identifier="myModal">
+    <app-add-new></app-add-new>
+   <!--  <button (click)="myModal.close()">Close</button> -->
+  </ngx-smart-modal>
+  <!-- Modal end-->
+  
+</div>
+</div>
